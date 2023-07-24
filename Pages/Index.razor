@@ -1,0 +1,275 @@
+﻿@page "/"
+@using System.Text.RegularExpressions;
+@using CreditCardWeb.Data;
+
+@inject BankCardDetails CardDetails;
+@inject BankDbContext Database;
+
+
+<PageTitle>Index</PageTitle>
+
+<div class="main">
+
+    <div class="card-wrapper">
+        <BankCard showBack="@rotated" CardEditStep="@cardEditStep" />
+    </div>
+
+    <div class="form">
+        <EditForm Model="@CardDetails" OnValidSubmit="@HandleSubmit">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+
+                <input @bind:event="oninput"
+                    @bind="CardDigits"
+                    @onfocus="(e => SetCardEditStep(CardEditStep.CARD_NUMBER))"
+                    @onblur="(e => ResetCardEditStep())"
+                    autocomplete="off"
+                    maxlength="19" class="form-control" id="cardNumber" />
+
+                <ValidationMessage For="@(() => CardDetails.CardNumber)" />
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="cardName">Card Name</label>
+
+                <input 
+                    @bind="CardDetails.CardName" 
+                    @bind:event="oninput" 
+                    @onfocus="(e => SetCardEditStep(CardEditStep.CARD_NAME))"
+                    @onblur="(e => ResetCardEditStep())"
+                       id="cardName" class="form-control" maxlength="25"/>
+
+                <ValidationMessage For="@(() => CardDetails.CardName)" />
+            </div>
+
+            <!--Section for expiry date and cvv-->
+            <div class="section-date-cvv">
+
+                <!--Section for expiry date-->
+                <div class="exp-container">
+                    <label>Expiration date</label>
+                    <div class="expiration-date">
+                        <!--Month Select-->
+                        <div class="custom-select">
+
+                            <input @onfocus="@((e) => {ToggleMonthFocused(); cardEditStep = CardEditStep.CARD_EXP_DATE;})"
+                            @onblur="@((e) => {ToggleMonthFocused(); cardEditStep = CardEditStep.NONE;})"
+                                   value="@(GetMonth())" 
+                                readonly />
+
+                            <span>
+                                <img src="/assets/expand-arrow.png" width="20" height="20" />
+                            </span>
+
+                            <div class="custom-dialog @(monthFocused ? "visible": "")">
+                                <span class="items-title">
+                                    <span class="icon @(CardDetails.ExpiryMonth == 0 ? "icon-show": "")">&#x2713;</span>
+                                    Month
+                                </span>
+                                @for (int i = 1; i <= 12; i++)
+                                {
+                                    int a = i;
+                                    <span class="item" @onmousedown="((e) => CardDetails.ExpiryMonth = a)">
+                                        <span class="icon  
+                                              @(CardDetails.ExpiryMonth == a ? "icon-show": "")">
+                                            &#x2713;
+                                        </span>
+                                        @i.ToString("D2")
+                                    </span>
+                                }
+                            </div>
+                        </div>
+
+                        <!--Year Select-->
+                        <div class="custom-select">
+
+                            <input @onfocus="@((e) => {ToggleYearFocused(); cardEditStep = CardEditStep.CARD_EXP_DATE;})"
+                            @onblur="@((e) => {ToggleYearFocused(); cardEditStep = CardEditStep.NONE;})"
+                                   value="@(GetYear())" readonly />
+
+                                <span>
+                                    <img src="/assets/expand-arrow.png" width="20" height="20" />
+                                </span>
+
+                            <div class="custom-dialog @(yearFocused ? "visible": "")">
+                                <span class="items-title">
+                                    <span class="icon @(CardDetails.ExpiryYear == 0 ? "icon-show": "")">&#x2713;</span>
+                                    Year
+                                </span>
+                                @for (DateTime i = DateTime.UtcNow; i.Year <= DateTime.UtcNow.AddYears(15).Year; i = i.AddYears(1))
+                                {
+                                    DateTime a = i;
+                                    <span class="item" @onmousedown="((e) => CardDetails.ExpiryYear = a.Year)">
+                                        <span class="icon  
+                                               @(CardDetails.ExpiryYear == a.Year ? "icon-show": "")">
+                                            &#x2713;
+                                        </span>
+                                        @i.Year
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardName">CVV</label>
+                    <input @bind="@CardDetails.CardCvv" @bind:event="oninput" @onblur="ToggleRotation" @onfocus="ToggleRotation" class="form-control" maxlength="4" />
+                </div>
+
+            </div>
+
+            <div>
+                <ValidationMessage For="@(() => CardDetails.ExpiryMonth)" />
+
+                <ValidationMessage For="@(() => CardDetails.ExpiryYear)" />
+                    
+                <ValidationMessage For="@(() => CardDetails.CardCvv)" />
+
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="submit" />
+        </EditForm>
+    </div>
+
+
+    <!--show inserted data here-->
+    <div class="saved-data">
+        <p class="title">Saved Cards</p>
+        <div class="thead">
+            <p>Card Holder</p>
+            <p>Card Number</p>
+        </div>
+        <table>
+            <tbody>
+                @foreach(var data in BankCards)
+                {
+                    <tr>
+                        <td>@(data.CardName)</td>
+                        <td>@(DecorateNumber(data.CardNumber))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@code
+{
+    bool rotated = false;
+    bool monthFocused = false;
+    bool yearFocused = false;
+
+    private CardEditStep cardEditStep = CardEditStep.NONE;
+
+    public List<BankCardDetails> BankCards { get; set; } = new List<BankCardDetails>();
+
+    private string CardDigits
+    {
+        set
+        {
+            OnCardNumberChange(value);  
+        }
+        get
+        {
+            return GetDecoratedCardNumber();  
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        BankCards = Database.BankCardDetails.ToList();
+    }
+
+    public async Task HandleSubmit()
+    {
+        var toBeSaved = new BankCardDetails();
+        toBeSaved.Id = Guid.NewGuid();
+        toBeSaved.ExpiryMonth = CardDetails.ExpiryMonth;
+        toBeSaved.ExpiryYear = CardDetails.ExpiryYear;
+        toBeSaved.CardNumber = CardDetails.CardNumber;
+        toBeSaved.CardCvv = CardDetails.CardCvv;
+        toBeSaved.CardName = CardDetails.CardName!.ToUpper();
+
+        Database.BankCardDetails.Add(toBeSaved);
+        await Database.SaveChangesAsync();
+        BankCards = Database.BankCardDetails.ToList();
+        CardDetails.Clear();
+    }
+
+    public string GetYear()
+    {
+        if (CardDetails.ExpiryYear != 0)
+        {
+            return CardDetails.ExpiryYear.ToString();
+        }
+        return "Year";
+    }
+
+    public string GetMonth()
+    {
+
+        if (CardDetails.ExpiryMonth != 0)
+        {
+            return CardDetails.ExpiryMonth.ToString("D2");
+        }
+
+        return "Month";
+    }
+
+    public void ToggleYearFocused()
+    {
+        yearFocused = !yearFocused;
+    }
+
+    public void ToggleMonthFocused()
+    {
+        monthFocused = !monthFocused;
+    }
+
+    private string GetDecoratedCardNumber()
+    {
+        if (String.IsNullOrEmpty(CardDetails.CardNumber))
+        {
+            return "";
+        }
+
+        return DecorateNumber(CardDetails.CardNumber);
+    }
+
+    private string DecorateNumber(string number)
+    {
+        Regex regex = new Regex(@"(\d{4})");
+        var splits = regex.Split(number);
+
+        var filtered = splits.Where(x => !String.IsNullOrEmpty(x)).ToArray();
+
+        return String.Join(" ", filtered).Trim();
+    }
+
+    private void OnCardNumberChange(string value)
+    {
+        var valueChars = value.Select(x => x.ToString()).Where(x => int.TryParse(x, out _)).ToArray();
+
+        CardDetails.CardNumber = String.Join("", valueChars);
+    }
+
+    public void ToggleRotation()
+    {
+        rotated = !rotated;
+    }
+
+    public void ResetCardEditStep()
+    {
+        cardEditStep = CardEditStep.NONE;
+    }
+
+    public void SetCardEditStep(CardEditStep step)
+    {
+        cardEditStep = step;
+    }
+}

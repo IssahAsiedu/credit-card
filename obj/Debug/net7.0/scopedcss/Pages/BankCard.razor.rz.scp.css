@@ -1,0 +1,294 @@
+.bank-card[b-reobc2xc53] {
+    width: 370px;
+    height: 230px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border: none !important;
+    background: transparent !important;
+}
+
+.front[b-reobc2xc53], .back[b-reobc2xc53] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)), url('assets/background.jpg');
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: white;
+    padding: 25px;
+}
+
+.back[b-reobc2xc53] {
+    transform: rotateY(180deg);
+}
+
+.rotated[b-reobc2xc53] {
+    transform: rotateY(180deg);
+}
+
+.chip-section[b-reobc2xc53] {
+    position: relative;
+    width: 100%;
+}
+
+.card-type[b-reobc2xc53] {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: right;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 55px;
+}
+
+.back-card-type[b-reobc2xc53] {
+    position: relative;
+    margin-top: 17px;
+}
+
+.card-number-display[b-reobc2xc53] {
+    position: relative;
+    font-size: 20px;
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    margin: auto;
+    gap: 4px;
+    font-weight: 500;
+    margin-top: 35px;
+ }
+
+.card-number-border[b-reobc2xc53] {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    border: 2px solid white;
+}
+
+.card-number-border-anim[b-reobc2xc53] {
+    animation: card-number-border-anim-b-reobc2xc53 .3s forwards !important;
+    border-radius: 4px;
+    display: block;
+}
+
+.card-date-border[b-reobc2xc53] {
+    position: absolute;
+    display: none;
+    border: 2px solid white;
+}
+
+.card-date-border-bordered-anim[b-reobc2xc53] {
+    display: block;
+    animation: card-date-border-bordered-anim-b-reobc2xc53 0.1s forwards !important;
+}
+
+.digits[b-reobc2xc53] {
+        position: absolute;
+    }
+
+.card-number-portion-1[b-reobc2xc53] {
+    top: 3px;
+    left: 10px;
+}
+
+.card-number-portion-2[b-reobc2xc53] {
+    top: 3px;
+    left: 85px;
+}
+
+.card-number-portion-3[b-reobc2xc53] {
+    top: 3px;
+    right: 150px;
+}
+
+.card-number-portion-4[b-reobc2xc53] {
+    top: 3px;
+    right: 65px;
+}
+
+.digits span[b-reobc2xc53] {
+    position: absolute;
+}
+
+.name-cvv[b-reobc2xc53] {
+    margin-top: 20px;
+    display: flex;
+    gap: 10%;
+}
+
+.name-cvv .title[b-reobc2xc53] {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+    color: grey;
+    
+}
+
+.name-section[b-reobc2xc53] {
+    width: 70%;
+    position: relative;
+}
+
+.name-section .content[b-reobc2xc53] {
+    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-name-border[b-reobc2xc53] {
+    border: 2px solid white;
+    position: absolute;
+    z-index: 200;
+    display: none;
+}
+
+.card-name-border-anim[b-reobc2xc53] {
+    border-radius: 4px;
+    animation: card-name-border-anim-b-reobc2xc53 .3s forwards !important;
+    display: block;
+}
+
+.expiry-section[b-reobc2xc53] {
+    width: 20%;
+}
+
+.expiry-section .data[b-reobc2xc53] {
+    position: relative;
+}
+
+.expiry-section .date-separator[b-reobc2xc53] {
+    position: absolute;
+    left: 28px;
+}
+
+.expiry-section .date-month[b-reobc2xc53] {
+    position: absolute;
+}
+
+.expiry-section .date-year[b-reobc2xc53] {
+    position: absolute;
+    left: 37px;
+}
+
+.whitespace[b-reobc2xc53] {
+    width: 5px;
+    height: 2px;
+}
+
+.back[b-reobc2xc53] {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.back .bank-details[b-reobc2xc53] {
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.bank-details .cvv[b-reobc2xc53] {
+    border-radius: 4px;
+    padding: 2px;
+    height: 40px;
+    background: white;
+    width: 100%;
+    color: black;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.stripe[b-reobc2xc53] {
+    width: 100%;
+    background: black;
+    height: 50px;
+}
+
+.duration-section[b-reobc2xc53] {
+
+}
+
+.skew-in[b-reobc2xc53] {
+    display: inline-block;
+    transform: rotate(60deg);
+    margin-left: 4px;
+    animation: skew-in-b-reobc2xc53 0.1s forwards !important;
+}
+
+.slide-down[b-reobc2xc53] {
+    top: -10px;
+    animation: slide-down-b-reobc2xc53 0.1s forwards !important;
+}
+
+.slide-up[b-reobc2xc53] {
+    top: 5px;
+    animation: slide-up-b-reobc2xc53 0.1s forwards !important;
+}
+
+@keyframes card-date-border-bordered-anim-b-reobc2xc53 {
+    0% {
+        width: 50%;
+        height: 27%;
+    }
+
+    100% {
+        width: 20%;
+        height: 27%;
+        right: 23px;
+    }
+}
+
+@keyframes card-name-border-anim-b-reobc2xc53 {
+    0% {
+        width: 315px;
+        top: 95px;
+        height: 20%;
+        left: 29px;
+    }
+
+    100% {
+        width: 250px;
+        top: 158px;
+        left: 17px;
+        height: 30%;
+    }
+}
+
+@keyframes card-number-border-anim-b-reobc2xc53 {
+    0% {
+        top: -70px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes slide-down-b-reobc2xc53 {
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes skew-in-b-reobc2xc53 {
+    100% {
+       transform: rotate(0deg);
+       margin-left: 0;
+    }
+}
+
+@keyframes slide-up-b-reobc2xc53 {
+    100% {
+        top: 0;
+    }
+}

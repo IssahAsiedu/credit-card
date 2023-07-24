@@ -1,0 +1,231 @@
+﻿@using CreditCardWeb.Data;
+
+
+@inject BankCardDetails CardDetails;
+
+
+<div class="bank-card @(GetRotationClass())">
+    <!--Front face-->
+    <div class="front">
+
+        <div class="chip-section">
+            <img src="/assets/chip.png" width="50" height="40" />
+
+            <div class="card-type" style="background-image: url('/assets/@GetCardType()');"></div>
+
+        </div>
+
+        <div class="card-number-display">
+
+            <span class="card-number-border @(GetCardNumberBorder())"></span>
+
+            <div class="digits card-number-portion-1">
+                @for (int i = 0; i < 4; i++)
+                {
+                    <span style="left: @(i * 15)px;" class="@(GetAnimationClass(i))"> @cardNumber[i] </span>
+                }
+            </div>
+
+            <div class="digits card-number-portion-2">
+                @for (int i = 4; i < 8; i++)
+                {
+                    <span style="left: @((i - 4) * 15)px;" class="@(GetAnimationClass(i))">@cardNumber[i]</span>
+                }
+            </div>
+
+            <div class="digits card-number-portion-3">
+                @for (int i = 8; i < 12; i++)
+                {
+                    <span style="left: @((i - 8) * 15)px;" class="@(GetAnimationClass(i))">@cardNumber[i]</span>
+                }
+            </div>
+
+            <div class="digits card-number-portion-4">
+                @for (int i = 12; i < 16; i++)
+                {
+                    <span style="left: @((i - 12) * 15)px;" class="@(GetAnimationClass(i))">@cardNumber[i]</span>
+                }
+            </div>
+
+        </div>
+
+
+        <div class="name-cvv">
+            <span class="card-name-border @(GetCardNameBorder())"></span>
+            <sapn class="card-date-border @(GetCardDateBorder())"></sapn>
+            <div class="name-section">
+                <p class="title">Card Holder</p>
+
+                <div class="content">
+                    @for(int i = 0; i < cardName.Length; i++)
+                    {
+                        <span class="@GetSkewClass(i)  @(String.IsNullOrWhiteSpace(cardName[i]) ? "whitespace" : "")">
+                          @(cardName[i].ToUpper())
+                      </span>  
+                    }
+                </div>
+
+            </div>
+
+            <div class="expiry-section">
+                <p class="title">Expires</p>
+
+                <div class="data">
+                    <span @key="@(CardDetails.ExpiryMonth + 10)" class="date-month @(GetYearMonthStyle(CardDetails.ExpiryMonth))">
+                        @(CardDetails.ExpiryMonth != 0 ? CardDetails.ExpiryMonth.ToString("D2"):"MM")
+                    </span>
+                    <span class="date-separator">/</span>
+                    <span @key="@(CardDetails.ExpiryYear + 100)" class="date-year @(GetYearMonthStyle(CardDetails.ExpiryYear))">
+                        @(CardDetails.ExpiryYear != 0 ? CardDetails.ExpiryYear % 100 : "YY")
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--back face-->
+    <div class="back">
+       <div class="stripe"></div>
+
+       <div class="bank-details">
+           <span>CVV</span>
+           <div class="cvv">
+                @(CardDetails.CardCvv?.ToString() ?? "")
+           </div>
+
+            <div class="card-type back-card-type" style="background-image: url('/assets/@GetCardType()');"></div>
+       </div>
+
+        
+    </div>
+</div>
+
+
+@code
+{
+    string[] cardNumber = new string[16];
+    String[] cardName = new String[0];
+    int oldCardNumberCount = 0;
+    int oldNameNumberCount = 0;
+    string newName = "";
+
+    [Parameter]
+    public bool showBack { get; set; } = false;
+
+    [Parameter]
+    public CardEditStep CardEditStep { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        Array.Fill<string>(cardNumber, "#");
+    }
+
+    protected override void OnParametersSet()
+    {
+        oldCardNumberCount = cardNumber.Count(x => x != "#");
+        oldNameNumberCount = cardName.Length;
+
+        newName = String.IsNullOrEmpty(CardDetails.CardName) ? "AD SOYAD" : CardDetails.CardName;
+
+        cardName = newName.Select(x => x.ToString()).ToArray();
+        
+        Array.Fill<string>(cardNumber, "#");
+        string[] splits = CardDetails.CardNumber.Select(x => x.ToString()).ToArray();
+
+        for (int i = 0; i < splits.Length; i++)
+        {
+            cardNumber[i] = splits[i];
+        }
+
+    }
+
+    protected String GetCardDateBorder()
+    {
+
+        if(CardEditStep == CardEditStep.CARD_EXP_DATE)
+        {
+            return "card-date-border-bordered-anim";
+        }
+
+        return "";
+    }
+
+    protected string GetYearMonthStyle(int number)
+    {
+        if(number != 0)
+        {
+            return "slide-down";
+        }
+
+        return "";
+    }
+
+    public string GetCardType()
+    {
+        if(cardNumber[0] == "5")
+        {
+            return "mastercard.png";
+        }
+
+        if(cardNumber[0] == "6")
+        {
+            return "discover.png";
+        }
+
+        return "visa.png";
+    }
+
+    public string GetAnimationClass(int id)
+    {
+
+        //true if there is a delete
+        if (CardDetails.CardNumber.Length < oldCardNumberCount && id == oldCardNumberCount - 1)
+        {
+            return "slide-up";
+        }
+
+        //true if there is an insert
+        if (CardDetails.CardNumber.Length > oldCardNumberCount && id == oldCardNumberCount)
+        {
+            return "slide-down";
+        }
+
+        return "";
+    }
+
+    public String GetSkewClass(int id)
+    {
+        if (newName.Length > oldNameNumberCount && id == oldNameNumberCount)
+        {
+            return "skew-in";
+        }
+        return "";
+    }
+
+    public string GetRotationClass()
+    {
+        return showBack ? "rotated" : "";
+    }
+
+    public String GetCardNumberBorder()
+    {
+        if (CardEditStep == CardEditStep.CARD_NUMBER)
+        {
+            return "card-number-border-anim";
+        }
+
+        return "";
+    }
+
+    public String GetCardNameBorder()
+    {
+        if(CardEditStep == CardEditStep.CARD_NAME)
+        {
+            return "card-name-border-anim";
+        }
+        return "";
+    }
+}

@@ -1,0 +1,207 @@
+
+.main[b-9kw9zhgvm9] {
+    width: 475.2px;
+    background: white;
+    border-radius: 6px;
+    position: absolute;
+    left: 40%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    padding: 2px;
+    margin-top: 75px;
+}
+
+.card-wrapper[b-9kw9zhgvm9] {
+    position: absolute;
+    width: 100%;
+    top: -120px;
+    display: flex;
+    justify-content: center;
+}
+
+.form[b-9kw9zhgvm9] {
+    width: 80%;
+    margin: auto;
+    margin-top: 145px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+} 
+
+.form-group[b-9kw9zhgvm9] {
+    margin-bottom: 10px;
+}
+
+.btn-primary[b-9kw9zhgvm9] {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+label[b-9kw9zhgvm9] {
+    font-size: 12px !important;
+    font-weight: 500;
+}
+
+.section-date-cvv[b-9kw9zhgvm9], .expiration-date[b-9kw9zhgvm9] {
+    display: flex;
+    gap: 15px;
+}
+
+.exp-container[b-9kw9zhgvm9] {
+    flex: 2;
+}
+
+.section-date-cvv form-group[b-9kw9zhgvm9] {
+    flex: 1;
+}
+
+.expiration-date[b-9kw9zhgvm9] {
+    justify-content: space-between;
+}
+
+.custom-select[b-9kw9zhgvm9] {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    border: 1px solid #D3D3D3;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.custom-select:focus-within[b-9kw9zhgvm9] {
+    border: 2px solid #63e5ff;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.custom-select input[b-9kw9zhgvm9] {
+    width: 70%;
+    outline: none !important;
+    border: none !important;
+    cursor: pointer;
+}
+
+.custom-select input:focus[b-9kw9zhgvm9] {
+    border: 2px solid #D3D3D3 !important;
+}
+
+.custom-select span[b-9kw9zhgvm9] {
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    position: relative;
+}
+
+.custom-dialog[b-9kw9zhgvm9] {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    z-index: 100;
+    display: none;
+    background-color: rgba(135, 174, 199, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    top: -209px;
+    overflow-y: scroll;
+}
+
+.custom-dialog span[b-9kw9zhgvm9] {
+    padding-left: 20px;
+    font-weight: normal;
+}
+
+[b-9kw9zhgvm9]::-webkit-scrollbar {
+    width: 1px;
+    height: 0.2px;
+}
+
+[b-9kw9zhgvm9]::-webkit-scrollbar-thumb {
+    background: #eee
+}
+
+.custom-dialog .item[b-9kw9zhgvm9] {
+    position: relative;
+    cursor: pointer;
+}
+
+.custom-dialog .items-title[b-9kw9zhgvm9] {
+   color: grey;
+}
+
+.main .saved-data[b-9kw9zhgvm9] {
+    width: 100%;
+    height: 100%;
+    background: #fffff6;
+    position: absolute;
+    border-radius: 6px;
+    overflow-x: hidden;
+    top: 0;
+    left: 480.2px;
+    padding-top: 77px;
+}
+
+.saved-data .title[b-9kw9zhgvm9] {
+    position: fixed;
+    background: black; 
+    border-radius: 6px 6px 0 0;
+    color: #F5F5F4;
+    top: 0;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.saved-data table[b-9kw9zhgvm9] {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.saved-data .thead[b-9kw9zhgvm9] {
+    position: fixed;
+    top: 36px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    background: #213A5C;
+    width: 100%;
+    height: 40px;
+}
+
+.thead p[b-9kw9zhgvm9] {
+    margin: 0;
+    color: white;
+}
+
+.saved-data td[b-9kw9zhgvm9] {
+    padding: 8px 16px;
+    text-align: center;
+    border-bottom: 1px dashed black;
+    width: 50%;
+}
+
+.icon[b-9kw9zhgvm9] {
+    position: absolute !important;
+    left: -10px;
+    display: none !important;
+}
+
+.icon-show[b-9kw9zhgvm9] {
+    display: block !important;
+    font-weight: bold !important;
+}
+
+.custom-dialog span:hover[b-9kw9zhgvm9] {
+    background: #6495ED;
+    color: white;
+}
+
+.visible[b-9kw9zhgvm9] {
+    display: block;
+}

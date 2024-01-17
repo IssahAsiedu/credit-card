@@ -1,107 +1,107 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.webassembly.js",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\obj\\Debug\\net7.0\\build-gz\\lYjixcz7.gz",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\obj\\Debug\\net7.0\\compressed\\q4qiya6hy5.gz",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\obj\\Debug\\net7.0\\scopedcss\\bundle\\CreditCardWeb.styles.css",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\obj\\Debug\\net7.0\\scopedcss\\bundle\\CreditCardWeb.styles.css",
       "PackagePath": "staticwebassets\\CreditCardWeb.styles.css"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\assets\\background.jpg",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\assets\\background.jpg",
       "PackagePath": "staticwebassets\\assets\\background.jpg"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\assets\\chip.png",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\assets\\chip.png",
       "PackagePath": "staticwebassets\\assets\\chip.png"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\assets\\discover.png",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\assets\\discover.png",
       "PackagePath": "staticwebassets\\assets\\discover.png"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\assets\\expand-arrow.png",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\assets\\expand-arrow.png",
       "PackagePath": "staticwebassets\\assets\\expand-arrow.png"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\assets\\mastercard.png",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\assets\\mastercard.png",
       "PackagePath": "staticwebassets\\assets\\mastercard.png"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\assets\\sticker.png",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\assets\\sticker.png",
       "PackagePath": "staticwebassets\\assets\\sticker.png"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\assets\\visa.png",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\assets\\visa.png",
       "PackagePath": "staticwebassets\\assets\\visa.png"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\app.css",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\open-iconic\\README.md",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\open-iconic\\README.md",
       "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\icon-192.png",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\index.html",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\IssahAsiedu\\Desktop\\project\\CreditCardWeb\\wwwroot\\sample-data\\weather.json",
+      "Id": "C:\\Users\\IssahAsiedu\\RiderProjects\\credit-card\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {
